@@ -3,28 +3,27 @@ name: Build SMC Gold Pro APK
 
 on:
   workflow_dispatch:
+
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Prepare APK build
+      - name: Check project files
         run: |
-          echo "SMC Gold Pro"
-          echo "HTML interface ready"
-          
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+          echo "Checking SMC Gold Pro files..."
+          test -f index.html
+          test -f manifest.json
+          test -f service-worker.js
 
-      - name: Build Android APK
-        uses: cemcoe/web-to-apk-action@v1
-        with:
-          app_name: "SMC Gold Pro"
-          app_id: "com.sm cgoldpro.app"
-          web_dir: "."
+      - name: Prepare Android build
+        run: |
+          mkdir -p apk-output
+          echo "Android project setup is required before APK compilation."
+          echo "The APK has not been built yet."
