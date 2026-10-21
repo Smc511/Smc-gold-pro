@@ -1,0 +1,13 @@
+
+{
+  "name": "SMC Gold Pro",
+  "short_name": "SMC Gold",
+  "description": "Gestion des signaux SMC pour XAU/USD",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101722",
+  "theme_color": "#101722",
+  "lang": "fr"
+}
