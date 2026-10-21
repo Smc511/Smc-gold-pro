@@ -1,0 +1,19 @@
+
+name: Build SMC Gold Pro APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Android APK
+        uses: cemcoe/web-to-apk-action@v1
+        with:
+          app_name: "SMC Gold Pro"
+          app_id: "com.sm cgoldpro.app"
+          web_dir: "."
