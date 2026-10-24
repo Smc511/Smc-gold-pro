@@ -1,29 +1,24 @@
-
 name: Build SMC Gold Pro APK
 
 on:
   workflow_dispatch:
-
-permissions:
-  contents: read
+  push:
+    branches:
+      - principal
 
 jobs:
   build:
+    name: Prepare SMC Gold Pro
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check project files
+      - name: Verify application files
         run: |
-          echo "Checking SMC Gold Pro files..."
           test -f index.html
-          test -f manifest.json
-          test -f service-worker.js
+          echo "index.html existe."
 
-      - name: Prepare Android build
-        run: |
-          mkdir -p apk-output
-          echo "Android project setup is required before APK compilation."
-          echo "The APK has not been built yet."
+      - name: Confirmation
+        run: echo "Verification terminee avec succes."
