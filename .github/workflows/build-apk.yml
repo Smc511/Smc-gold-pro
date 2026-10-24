@@ -8,11 +8,20 @@ on:
       - principal
 
 jobs:
-  verify:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Recuperer le code
         uses: actions/checkout@v4
 
-      - name: Verifier index.html
-        run: test -f index.html
+      - name: Installer Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Verifier les fichiers
+        run: |
+          test -f index.html
+          test -f package.json
+          echo "Fichiers verifies."
